@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inf-Bench: Ascending the Infinite Ladder</title>
+    <meta name="description" content="Benchmarking Spatial Deformation Reasoning in Vision-Language Models">
+    
+    <!-- 字体引入 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- 样式表 -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部返回按钮 -->
+    <button id="back-to-top" class="back-to-top" aria-label="回到顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 头部区域 -->
+    <header class="site-header">
+        <div class="container">
+            <div class="title-area">
+                <h1>Inf-Bench: Ascending the Infinite Ladder</h1>
+                <h2>Benchmarking Spatial Deformation Reasoning in Vision-Language Models</h2>
+                <p class="tagline">Pushing the Limits of Spatial Imagination in Vision-Language Models</p>
+            </div>
+            
+            <div class="authors-area">
+                <div class="authors-list">
+                    <span class="author">Author Name1<sup>1</sup></span>
+                    <span class="author">Author Name2<sup>2</sup></span>
+                    <span class="author">Author Name3<sup>1</sup></span>
+                    <span class="author">Author Name4<sup>3</sup></span>
+                </div>
+                
+                <div class="institutions">
+                    <p><sup>1</sup>Institution Name1</p>
+                    <p><sup>2</sup>Institution Name2</p>
+                    <p><sup>3</sup>Institution Name3</p>
+                </div>
+            </div>
+            
+            <div class="links-bar">
+                <a href="#" class="btn btn-primary">Paper</a>
+                <a href="#" class="btn btn-primary">Dataset</a>
+                <a href="#" class="btn btn-primary">Code</a>
+                <a href="#" class="btn btn-primary">Demo/Explore</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 导航菜单 -->
+    <nav class="main-nav" id="main-nav">
+        <div class="container">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list">
+                <li><a href="#abstract" class="nav-link active">Abstract</a></li>
+                <li><a href="#challenge" class="nav-link">The Challenge</a></li>
+                <li><a href="#motivation" class="nav-link">Motivation</a></li>
+                <li><a href="#overview" class="nav-link">Benchmark</a></li>
+                <li><a href="#dataset" class="nav-link">Dataset</a></li>
+                <li><a href="#citation" class="nav-link">Citation</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 主要内容区域 -->
+    <main>
+        <!-- 摘要区域 -->
+        <section id="abstract" class="abstract-section content-section">
+            <div class="container abstract-container">
+                <div class="abstract-content">
+                    <h2 class="section-title">Abstract</h2>
+                    <p>Humans naturally possess the spatial reasoning ability to form and manipulate images and structures of objects in space. There is an increasing effort to endow Vision-Language Models (VLMs) with similar spatial reasoning capabilities. However, it remains unclear whether these models truly understand and manipulate spatial objects or rely on simpler pathways for solving tasks. In this work, we introduce <strong>Inf-Bench</strong>, a comprehensive benchmark designed to evaluate spatial reasoning in VLMs. Specifically, we focus on spatial deformation reasoning—a key aspect of spatial intelligence that requires understanding how objects transform through spatial operations. Our benchmark presents an infinite ladder of complexity through three levels of spatial worlds (2D, 2.5D, and 3D) and two types of reasoning (forward and inverse). This design creates a systematic framework to push and evaluate the limits of VLMs' spatial reasoning abilities. Through extensive evaluation, we demonstrate that current state-of-the-art VLMs struggle with spatial deformation reasoning, especially as complexity increases along our infinite ladder. Our findings reveal specific weaknesses and limitations in current models, providing valuable insights for future research directions in spatial reasoning for vision-language intelligence.</p>
+                </div>
+                <div class="abstract-image">
+                    <img src="images/spatial-reasoning-benchmark.png" alt="Inf-Bench Showcase" class="hero-image">
+                </div>
+            </div>
+        </section>
+        
+        <!-- 挑战展示区域 -->
+        <section id="challenge" class="challenge-section content-section">
+            <div class="container">
+                <h2 class="section-title">The Challenge: A Glimpse</h2>
+                <p class="section-intro">To give you an intuitive sense of the complexity of tasks in <strong>Inf-Bench</strong>, consider the examples below. Models need to understand the instructions and predict/infer operations or results.</p>
+                
+                <div class="examples-container">
+                    <div class="example-card">
+                        <h3>Example 1: 2D Inverse Reasoning (ShapeZ)</h3>
+                        <div class="example-content">
+                            <img src="images/2d-shape-sequence.png" alt="2D inverse problem example" class="example-image">
+                            
+                            <div class="problem-description">
+                                <p>Shape (a) is transformed into shape (b) using 4 operations. What are these operations?</p>
+                                <div class="options">
+                                    <div class="option">A. cut; fill with blue window; rotate ccw 90°; cut</div>
+                                    <div class="option">B. cut; colorize yellow; rotate ccw 90°; cut</div>
+                                    <div class="option">C. mirror; fill with blue window; rotate ccw 90°; cut</div>
+                                    <div class="option">D. cut; fill with blue window; mirror; rotate ccw 90°</div>
+                                </div>
+                                
+                                <button class="show-answer-btn">Show Answer</button>
+                                <div class="answer">
+                                    <p>Correct Answer: A, QWen2.5-VL: B</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>Example 2: 3D Forward Reasoning (Rubik's Cube Operations)</h3>
+                        <div class="example-content">
+                            <img src="images/3d-rubik-steps.png" alt="3D forward problem example" class="example-image">
+                            
+                            <div class="problem-description">
+                                <p>This cube undergoes 3 operations: {F; B2; E2}. What will the final cube look like?</p>
+                                <div class="options image-options">
+                                    <div class="image-option">
+                                        <img src="images/3d-rubik-steps_A.png" alt="Option A" class="option-image">
+                                        <span>A</span>
+                                    </div>
+                                    <div class="image-option">
+                                        <img src="images/3d-rubik-steps_B.png" alt="Option B" class="option-image">
+                                        <span>B</span>
+                                    </div>
+                                    <div class="image-option">
+                                        <img src="images/3d-rubik-steps_C.png" alt="Option C" class="option-image">
+                                        <span>C</span>
+                                    </div>
+                                    <div class="image-option">
+                                        <img src="images/3d-rubik-steps_D.png" alt="Option D" class="option-image">
+                                        <span>D</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="show-answer-btn">Show Answer</button>
+                                <div class="answer">
+                                    <p>Correct Answer: B, O3: A</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="section-footer">These are just the tip of the iceberg. Inf-Bench includes tasks from 2D to 3D, covering a variety of operations and reasoning steps.</p>
+            </div>
+        </section>
+        
+        <!-- 动机介绍区域 -->
+        <section id="motivation" class="motivation-section content-section">
+            <div class="container">
+                <h2 class="section-title">Why Inf-Bench? (Motivation & Introduction)</h2>
+                
+                <div class="motivation-content">
+                    <p>Imagine shaping a lump of clay into a desired object through sequential manipulations, considering how the object's appearance changes with each action. This process exemplifies <strong>spatial deformation reasoning</strong>—the ability to imagine, predict, and reason about how objects transform through spatial operations.</p>
+                    
+                    <div class="collapsible-block">
+                        <h3 class="collapsible-header">The Need for Spatial Reasoning Evaluation <i class="fas fa-chevron-down"></i></h3>
+                        <div class="collapsible-content">
+                            <p>While Vision-Language Models (VLMs) have demonstrated impressive capabilities across various tasks, their ability to reason about spatial transformations remains largely untested. Current benchmarks typically focus on basic spatial concepts but rarely examine complex spatial operations and transformations, especially in a systematic way that increases in complexity.</p>
+                            <img src="images/spartqa-dataset.png" alt="Comparison with existing spatial reasoning benchmarks" class="content-image">
+                            <p>Existing benchmarks either focus on static spatial relationships (like object positions) or simple operations, without a cohesive framework to systematically test increasingly complex spatial reasoning. This gap motivates our development of Inf-Bench.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-block">
+                        <h3 class="collapsible-header">The Infinite Ladder Concept <i class="fas fa-chevron-down"></i></h3>
+                        <div class="collapsible-content">
+                            <p>Inf-Bench introduces the concept of an "infinite ladder" of spatial reasoning complexity. This ladder has two dimensions:</p>
+                            <ul>
+                                <li><strong>Spatial Worlds:</strong> Progressing from 2D shapes to 2.5D layered structures to 3D objects (Rubik's cubes)</li>
+                                <li><strong>Reasoning Types:</strong> Both forward reasoning (predicting results from operations) and inverse reasoning (inferring operations from results)</li>
+                            </ul>
+                            <p>As one ascends this ladder, tasks become increasingly complex, requiring more sophisticated spatial understanding and reasoning capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 基准概述区域 -->
+        <section id="overview" class="overview-section content-section">
+            <div class="container">
+                <h2 class="section-title">Benchmark Overview</h2>
+                
+                <div class="overview-content">
+                    <p class="overview-intro">Inf-Bench evaluates spatial deformation reasoning across three spatial worlds, each representing a different level of complexity in spatial structures and operations.</p>
+                    
+                    <div class="spatial-world-grid">
+                        <div class="spatial-world-card">
+                            <h3>2D World</h3>
+                            <div class="image-container">
+                                <img src="images/2d-shape.png" alt="2D World Background" class="background-image">
+                                <img src="images/2d-shape.png" alt="2D World Example" class="world-image">
+                            </div>
+                            <div class="world-description">
+                                <p>Inspired by the game Shapez.io, our 2D world involves basic geometric shapes that undergo operations like cutting, rotation, coloring, and more.</p>
+                                <h4>Operations:</h4>
+                                <ul>
+                                    <li>Cut, Mirror, Rotate</li>
+                                    <li>Stack, Colorize, Add Window</li>
+                                </ul>
+                                <p>These primitive operations can be combined to create complex transformations, testing models' understanding of 2D spatial changes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spatial-world-card">
+                            <h3>2.5D World</h3>
+                            <div class="image-container">
+                                <img src="images/25d-layered.png" alt="2.5D World Background" class="background-image">
+                                <img src="images/25d-layered.png" alt="2.5D World Example" class="world-image">
+                            </div>
+                            <div class="world-description">
+                                <p>Our 2.5D world introduces layered structures, where 2D shapes are stacked to create more complex objects with depth.</p>
+                                <h4>Operations:</h4>
+                                <ul>
+                                    <li>Layer-wise 2D operations</li>
+                                    <li>Layer swapping, merging, splitting</li>
+                                    <li>Multi-layer transformations</li>
+                                </ul>
+                                <p>This intermediate level bridges the gap between 2D and full 3D reasoning, requiring understanding of how changes in one layer affect the overall structure.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="spatial-world-card">
+                            <h3>3D World</h3>
+                            <div class="image-container">
+                                <img src="images/3d-rubik.png" alt="3D World Background" class="background-image">
+                                <img src="images/3d-rubik.png" alt="3D World Example" class="world-image">
+                            </div>
+                            <div class="world-description">
+                                <p>At the highest level, our 3D world uses Rubik's cubes as a testbed for complex spatial reasoning, requiring understanding of 3D rotations and their effects.</p>
+                                <h4>Operations:</h4>
+                                <ul>
+                                    <li>Standard Rubik's cube notation (F, B, R, L, U, D)</li>
+                                    <li>Extended operations (slice moves like M, E, S)</li>
+                                    <li>Compound moves and sequences</li>
+                                </ul>
+                                <p>This level challenges models to perform genuine 3D spatial reasoning, imagining how cube faces move and change with operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-block">
+                        <h3 class="collapsible-header">Reasoning Types <i class="fas fa-chevron-down"></i></h3>
+                        <div class="collapsible-content">
+                            <div class="reasoning-types-container">
+                                <div class="reasoning-type">
+                                    <h4>Forward Reasoning</h4>
+                                    <p>Given an initial state and a sequence of operations, predict the final state.</p>
+                                    <div class="reasoning-example">
+                                        <div class="example-format">
+                                            <strong>Input:</strong> Initial shape/structure + Operations sequence<br>
+                                            <strong>Output:</strong> Resulting shape/structure
+                                        </div>
+                                    </div>
+                                    <p>This tests a model's ability to mentally simulate spatial operations and their cumulative effects.</p>
+                                </div>
+                                
+                                <div class="reasoning-type">
+                                    <h4>Inverse Reasoning</h4>
+                                    <p>Given an initial state and a final state, infer the operations that were performed.</p>
+                                    <div class="reasoning-example">
+                                        <div class="example-format">
+                                            <strong>Input:</strong> Initial shape/structure + Final shape/structure<br>
+                                            <strong>Output:</strong> Operations sequence that transforms initial to final
+                                        </div>
+                                    </div>
+                                    <p>This tests a model's ability to reverse-engineer spatial transformations, a more challenging task that requires deeper understanding.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 数据集信息区域 -->
+        <section id="dataset" class="dataset-section content-section">
+            <div class="container">
+                <h2 class="section-title">Dataset Information</h2>
+                
+                <div class="dataset-content">
+                    <div class="dataset-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">3K+</div>
+                            <div class="stat-label">Total Examples</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Task Categories</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Spatial Worlds</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-access">
+                        <h3>Access the Dataset</h3>
+                        <p>The Inf-Bench dataset is publicly available for research purposes. It includes task examples across all three spatial worlds and both reasoning types, along with ground truth annotations.</p>
+                        <div class="dataset-buttons">
+                            <a href="https://huggingface.co/datasets/Chrishuanhuan/Inf-Bench" class="btn btn-secondary"><i class="fas fa-download"></i> Download Dataset</a>
+                            <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub Repository</a>https://huggingface.co/datasets/Chrishuanhuan/Inf-Bench
+                        </div>
+                    </div>
+                    
+                    <div class="dataset-format">
+                        <h3>Data Format</h3>
+                        <p>The dataset is provided in JSON format with the following structure:</p>
+                        <pre><code>{
+  "id": "task_id",
+  "world": "2D|2.5D|3D",
+  "reasoning_type": "forward|inverse",
+  "difficulty": "easy|medium|hard",
+  "initial_state": {...},
+  "operations": [...],  // for forward reasoning
+  "final_state": {...},
+  "options": [...],     // for multiple choice questions
+  "correct_answer": "..."
+}</code></pre>
+                    </div>
+                    
+                    <div class="license-info">
+                        <h3>License</h3>
+                        <p>The Inf-Bench dataset is released under the <a href="#">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 引用区域 -->
+        <section id="citation" class="citation-section content-section">
+            <div class="container">
+                <h2 class="section-title">Citation</h2>
+                
+                <div class="citation-content">
+                    <p>If you use Inf-Bench in your research, please cite our paper:</p>
+                    <div class="citation-box">
+                        <pre id="citation-text">@inproceedings{author2023infbench,
+  title={Inf-Bench: Ascending the Infinite Ladder},
+  author={Author, A. and Author, B. and Author, C.},
+  booktitle={Proceedings of the Conference on Computer Vision and Pattern Recognition},
+  year={2023}
+}</pre>
+                        <button id="copy-citation" class="btn btn-sm"><i class="far fa-copy"></i> Copy BibTeX</button>
+                        <span id="copy-feedback" class="copy-feedback">Copied!</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2023 Inf-Bench Team. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 图片查看器 -->
+    <div id="image-viewer" class="image-viewer">
+        <span class="close-viewer">&times;</span>
+        <img id="full-image" class="full-image">
+        <div id="image-caption" class="image-caption"></div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

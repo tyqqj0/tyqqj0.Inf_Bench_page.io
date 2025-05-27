@@ -1,0 +1,943 @@
+/* 
+ * Inf-Bench 网站样式表
+ * 包含通用样式、响应式布局和组件样式
+ */
+
+/* ---------- 基础样式设置 ---------- */
+:root {
+  /* 主要颜色 */
+  --primary-color: #1a365d;      /* 深蓝色 - 主色调 */
+  --secondary-color: #3182ce;    /* 亮蓝色 - 辅色调 */
+  --accent-color: #4299e1;       /* 天蓝色 - 强调色 */
+  --light-color: #e2e8f0;        /* 浅灰色 - 背景和分隔 */
+  --extra-light-color: #f7fafc;  /* 极浅灰 - 卡片背景 */
+  --dark-color: #2d3748;         /* 深灰色 - 文本 */
+  --success-color: #38a169;      /* 绿色 - 成功提示 */
+  
+  /* 字体设置 */
+  --title-font: 'Inter', sans-serif;
+  --body-font: 'Source Sans Pro', sans-serif;
+  
+  /* 尺寸和间距 */
+  --container-width: 1200px;
+  --section-spacing: 5rem;
+  --element-spacing: 1.5rem;
+  --border-radius: 4px;
+}
+
+/* 重置样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--dark-color);
+  line-height: 1.6;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+/* 排版 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--title-font);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+code, pre {
+  font-family: monospace;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+code {
+  padding: 0.2rem 0.4rem;
+}
+
+/* ---------- 布局结构 ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.content-section {
+  padding: var(--section-spacing) 0;
+}
+
+.content-section:nth-child(even) {
+  background-color: var(--extra-light-color);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  margin: 1rem auto 0;
+}
+
+.section-intro {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-footer {
+  text-align: center;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+/* ---------- 组件样式 ---------- */
+
+/* 按钮样式 */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-family: var(--title-font);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #15294d;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #2b6cb0;
+  color: white;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.btn i {
+  margin-right: 0.5rem;
+}
+
+/* 卡片样式 */
+.example-card, .spatial-world-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.example-card h3, .spatial-world-card h3 {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  margin: 0;
+}
+
+/* ---------- 头部区域 ---------- */
+.site-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.site-header h1, .site-header h2 {
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.site-header h1 {
+  font-size: 2.8rem;
+}
+
+.site-header h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.tagline {
+  font-style: italic;
+  margin: 1rem 0 2rem;
+  opacity: 0.8;
+}
+
+.authors-area {
+  margin: 2rem 0;
+}
+
+.authors-list {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.author {
+  margin: 0 0.5rem;
+  white-space: nowrap;
+}
+
+.institutions {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.institutions p {
+  margin: 0.2rem 0;
+}
+
+.links-bar {
+  margin-top: 2rem;
+}
+
+.links-bar .btn {
+  margin: 0 0.5rem 0.5rem;
+}
+
+/* ---------- 导航菜单 ---------- */
+.main-nav {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.main-nav.scrolled {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  color: var(--dark-color);
+  font-family: var(--title-font);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+}
+
+.nav-link.active {
+  color: var(--secondary-color);
+  border-bottom: 3px solid var(--secondary-color);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* ---------- 英雄区域 ---------- */
+.hero-section {
+  padding: 2rem 0 3rem;
+  text-align: center;
+}
+
+.hero-image {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- 摘要区域 ---------- */
+.abstract-section {
+  padding: 4rem 0;
+  background-color: var(--extra-light-color);
+}
+
+.abstract-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.abstract-content {
+  flex: 1;
+  min-width: 0; /* 防止内容溢出 */
+}
+
+.abstract-content .section-title {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.abstract-content .section-title::after {
+  margin: 1rem 0 0;
+}
+
+.abstract-content p {
+  color: var(--dark-color);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.abstract-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0; /* 防止内容溢出 */
+}
+
+.abstract-image .hero-image {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+  .abstract-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .abstract-content {
+    width: 100%;
+  }
+  
+  .abstract-image {
+    width: 100%;
+  }
+  
+  .abstract-image .hero-image {
+    max-width: 100%;
+  }
+}
+
+/* ---------- 挑战展示区域 ---------- */
+.examples-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.example-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.example-image {
+  max-width: 8%;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.7rem;
+}
+
+.problem-description {
+  padding: 1rem;
+  background-color: var(--extra-light-color);
+  border-radius: var(--border-radius);
+}
+
+.options {
+  margin: 1rem 0;
+}
+
+.option {
+  padding: 0.8rem;
+  background-color: white;
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.option:hover {
+  border-color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+.image-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.image-option {
+  text-align: center;
+  cursor: pointer;
+}
+
+.option-image {
+  max-width: 50%;
+  border-radius: var(--border-radius);
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.image-option:hover .option-image {
+  border-color: var(--secondary-color);
+}
+
+.show-answer-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-answer-btn:hover {
+  background-color: #2b6cb0;
+}
+
+.answer {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  display: none;
+}
+
+/* ---------- 动机介绍区域 ---------- */
+.motivation-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.collapsible-block {
+  margin: 1.5rem 0;
+  border: 1px solid var(--light-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.collapsible-header {
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--extra-light-color);
+  margin: 0;
+}
+
+.collapsible-header i {
+  transition: transform 0.3s ease;
+}
+
+.collapsible-block.active .collapsible-header i {
+  transform: rotate(180deg);
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 1rem;
+}
+
+.collapsible-block.active .collapsible-content {
+  max-height: 1000px;
+  padding: 1rem;
+}
+
+.content-image {
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: var(--border-radius);
+}
+
+/* ---------- 基准概述区域 ---------- */
+.spatial-world-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.spatial-world-card {
+  position: relative;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.spatial-world-card h3 {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  margin: 0;
+}
+
+.spatial-world-card .image-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--extra-light-color);
+}
+
+.spatial-world-card .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px) brightness(0.8);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.spatial-world-card .world-image {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  max-width: 500px;
+  max-height: 270px;
+  object-fit: contain;
+  z-index: 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.world-description {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.world-description h4 {
+  color: var(--primary-color);
+  margin: 1rem 0 0.5rem;
+}
+
+.world-description ul {
+  margin: 0.5rem 0 1rem;
+}
+
+.world-description li {
+  margin-bottom: 0.3rem;
+}
+
+.reasoning-types-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.reasoning-type {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reasoning-example {
+  background-color: var(--extra-light-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin: 1rem 0;
+}
+
+.example-format {
+  font-family: monospace;
+}
+
+/* ---------- 数据集信息区域 ---------- */
+.dataset-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.dataset-access, .dataset-format, .license-info {
+  margin: 2.5rem 0;
+}
+
+.dataset-buttons {
+  margin: 1.5rem 0;
+}
+
+.dataset-buttons .btn {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- 引用区域 ---------- */
+.citation-box {
+  background-color: var(--extra-light-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.citation-box pre {
+  background: none;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+#copy-citation {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.copy-feedback {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background-color: var(--success-color);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--border-radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-feedback.visible {
+  opacity: 1;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--light-color);
+  margin: 0 1rem;
+}
+
+.site-footer a:hover {
+  color: white;
+}
+
+/* ---------- 图片查看器 ---------- */
+.image-viewer {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+.close-viewer {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close-viewer:hover {
+  color: #999;
+}
+
+.full-image {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-caption {
+  color: #ccc;
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- 回到顶部按钮 ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+}
+
+.back-to-top.visible {
+  display: flex;
+}
+
+/* ---------- 响应式设计 ---------- */
+
+/* 平板尺寸 */
+@media (min-width: 768px) {
+  /* 标题调整 */
+  .site-header h1 {
+    font-size: 3.5rem;
+  }
+  
+  .site-header h2 {
+    font-size: 2rem;
+  }
+  
+  /* 挑战区域布局调整 */
+  .example-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .example-image {
+    width: 40%;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  .problem-description {
+    flex: 1;
+  }
+  
+  /* 世界卡片网格调整 */
+  .spatial-world-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* 推理类型布局调整 */
+  .reasoning-types-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .spatial-world-card .image-container {
+    height: 350px;
+  }
+  
+  .spatial-world-card .world-image {
+    width: 85%;
+    height: 85%;
+    max-height: 300px;
+  }
+}
+
+/* 桌面尺寸 */
+@media (min-width: 1024px) {
+  /* 世界卡片网格调整为三列 */
+  .spatial-world-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* 导航调整 */
+  .nav-list {
+    justify-content: center;
+  }
+  
+  .spatial-world-card .image-container {
+    height: 250px;
+  }
+  
+  .spatial-world-card .world-image {
+    width: 85%;
+    height: 85%;
+    max-height: 340px;
+  }
+}
+
+/* 小屏幕调整 */
+@media (max-width: 767px) {
+  /* 标题调整 */
+  .site-header h1 {
+    font-size: 2rem;
+  }
+  
+  .site-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  /* 导航菜单 */
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    left: 1rem;
+    top: 0.8rem;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  
+  .main-nav.menu-open .nav-list {
+    max-height: 500px;
+  }
+  
+  .nav-link {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--light-color);
+  }
+  
+  .nav-link.active {
+    border-left: 3px solid var(--secondary-color);
+    border-bottom: none;
+  }
+  
+  /* 数据集统计卡片 */
+  .dataset-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* 选项图片网格 */
+  .image-options {
+    grid-template-columns: 1fr;
+  }
+}
