@@ -18,6 +18,52 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 检查语法
   syntaxSelfCheck();
+
+  // 处理选项选择和答案显示
+  const exampleCards = document.querySelectorAll('.example-card');
+  
+  exampleCards.forEach(card => {
+    const options = card.querySelectorAll('.option, .image-option');
+    const answerDiv = card.querySelector('.answer');
+    const correctAnswer = answerDiv.textContent.match(/Correct Answer: ([A-D])/)[1];
+    
+    options.forEach(option => {
+      option.addEventListener('click', function() {
+        // 移除其他选项的选中状态
+        options.forEach(opt => {
+          opt.classList.remove('selected', 'correct', 'incorrect');
+        });
+        
+        // 添加选中状态
+        this.classList.add('selected');
+        
+        // 获取选项字母（A, B, C, D）
+        const selectedAnswer = this.classList.contains('image-option') 
+          ? this.querySelector('span').textContent 
+          : this.textContent.charAt(0);
+        
+        // 判断是否正确
+        if (selectedAnswer === correctAnswer) {
+          this.classList.add('correct');
+        } else {
+          this.classList.add('incorrect');
+          // 显示正确答案
+          options.forEach(opt => {
+            if ((opt.classList.contains('image-option') 
+              ? opt.querySelector('span').textContent 
+              : opt.textContent.charAt(0)) === correctAnswer) {
+              opt.classList.add('correct');
+            }
+          });
+        }
+        
+        // 显示答案详情
+        setTimeout(() => {
+          answerDiv.classList.add('show');
+        }, 500);
+      });
+    });
+  });
 });
 
 /**
