@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   // 初始化内容交互
   initContentInteractions();
-  // 初始化图片查看器
-  initImageViewer();
   // 初始化引用复制功能
   initCitationCopy();
   // 初始化回到顶部按钮
@@ -207,82 +205,6 @@ function initContentInteractions() {
 }
 
 /**
- * 初始化图片查看器
- */
-function initImageViewer() {
-  // 获取图片查看器元素
-  const imageViewer = document.getElementById('image-viewer');
-  const fullImage = document.getElementById('full-image');
-  const imageCaption = document.getElementById('image-caption');
-  const closeButton = document.querySelector('.close-viewer');
-  
-  // 处理所有内容图片的点击
-  const contentImages = document.querySelectorAll('.example-image, .world-image, .content-image');
-  contentImages.forEach(img => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', () => {
-      openImageViewer(img.src, img.alt);
-    });
-  });
-  
-  // 处理选项图片的点击
-  const optionImages = document.querySelectorAll('.option-image');
-  optionImages.forEach(img => {
-    img.addEventListener('click', () => {
-      openImageViewer(img.src, img.alt);
-    });
-  });
-  
-  // 关闭图片查看器
-  if (closeButton) {
-    closeButton.addEventListener('click', closeImageViewer);
-  }
-  
-  // 点击图片查看器的背景也可以关闭
-  if (imageViewer) {
-    imageViewer.addEventListener('click', (event) => {
-      if (event.target === imageViewer) {
-        closeImageViewer();
-      }
-    });
-  }
-  
-  /**
-   * 打开图片查看器
-   * @param {string} imgSrc 图片路径
-   * @param {string} caption 图片标题
-   */
-  function openImageViewer(imgSrc, caption) {
-    if (!imageViewer || !fullImage) return;
-    
-    // 设置图片和标题
-    fullImage.src = imgSrc;
-    if (imageCaption && caption) {
-      imageCaption.textContent = caption;
-    }
-    
-    // 显示图片查看器
-    imageViewer.style.display = 'block';
-    
-    // 禁止背景滚动
-    document.body.style.overflow = 'hidden';
-  }
-  
-  /**
-   * 关闭图片查看器
-   */
-  function closeImageViewer() {
-    if (!imageViewer) return;
-    
-    // 隐藏图片查看器
-    imageViewer.style.display = 'none';
-    
-    // 恢复背景滚动
-    document.body.style.overflow = '';
-  }
-}
-
-/**
  * 初始化引用复制功能
  */
 function initCitationCopy() {
@@ -433,13 +355,6 @@ function syntaxSelfCheck() {
     console.assert(
       exampleCard !== null, 
       "Example card element exists"
-    );
-    
-    // 图片查看器检查
-    const imageViewer = document.getElementById('image-viewer');
-    console.assert(
-      imageViewer !== null, 
-      "Image viewer element exists"
     );
     
   } catch (error) {
