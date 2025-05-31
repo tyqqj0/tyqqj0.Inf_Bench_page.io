@@ -317,15 +317,25 @@
                         <h3>Data Format</h3>
                         <p>The dataset is provided in JSON format with the following structure:</p>
                         <pre><code>{
-  "id": "task_id",
-  "world": "2D|2.5D|3D",
-  "reasoning_type": "forward|inverse",
-  "difficulty": "easy|medium|hard",
-  "initial_state": {...},
-  "operations": [...],  // for forward reasoning
-  "final_state": {...},
-  "options": [...],     // for multiple choice questions
-  "correct_answer": "..."
+  "id": "cube(step:i)",
+  "original_cube": "...",
+  "steps_number": i,
+  "target_cube": "...",
+  "target_action_list": ["R Right face clockwise 90 degrees", "U2 Up face 180 degrees"],
+  "ground_truth": "B",
+  "cube_items": {
+    "A": { ... },
+    "B": { ... },
+    "C": { ... },
+    "D": { ... }
+  },
+  "image_path": {
+    "original": ".../original.png",
+    "option_A": ".../option_A.png",
+    "option_B": ".../option_B.png",
+    "option_C": ".../option_C.png",
+    "option_D": ".../option_D.png"
+  }
 }</code></pre>
                     </div>
                     
