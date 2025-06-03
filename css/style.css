@@ -927,3 +927,170 @@ code {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- 简洁说明区域样式 ---------- */
+.summary-section {
+  background: linear-gradient(135deg, var(--extra-light-color) 0%, #ffffff 100%);
+  padding: 4rem 0;
+}
+
+.summary-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.summary-intro {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--dark-color);
+  margin-bottom: 0;
+}
+
+.summary-intro strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.feature-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.feature-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.feature-content p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  color: var(--dark-color);
+}
+
+.summary-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.summary-links .btn {
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.summary-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ledder-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.ledder-image:hover {
+  transform: scale(1.02);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .summary-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .summary-image {
+    order: -1;
+  }
+  
+  .ledder-image {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .summary-section {
+    padding: 3rem 0;
+  }
+  
+  .summary-content {
+    gap: 2rem;
+  }
+  
+  .summary-intro {
+    font-size: 1.1rem;
+  }
+  
+  .feature-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .feature-icon {
+    align-self: center;
+  }
+  
+  .summary-links {
+    justify-content: center;
+  }
+  
+  .summary-links .btn {
+    flex: 1;
+    min-width: 120px;
+  }
+  
+  .ledder-image {
+    max-width: 300px;
+  }
+}

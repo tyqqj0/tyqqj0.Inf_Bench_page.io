@@ -45,12 +45,11 @@
                 </div>
             </div>
             
-            <div class="links-bar">
+            <!-- <div class="links-bar">
                 <a href="#" class="btn btn-primary">Paper</a>
                 <a href="https://huggingface.co/datasets/Chrishuanhuan/Inf-Bench" class="btn btn-primary">Dataset</a>
                 <a href="https://huggingface.co/datasets/Chrishuanhuan/Inf-Bench" class="btn btn-primary">Code</a>
-                <!-- <a href="#" class="btn btn-primary">Demo/Explore</a> -->
-            </div>
+            </div> -->
         </div>
     </header>
     
@@ -61,7 +60,8 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-list">
-                <li><a href="#abstract" class="nav-link active">Abstract</a></li>
+                <li><a href="#summary" class="nav-link active">Overview</a></li>
+                <li><a href="#abstract" class="nav-link">Abstract</a></li>
                 <li><a href="#challenge" class="nav-link">The Challenge</a></li>
                 <li><a href="#motivation" class="nav-link">Motivation</a></li>
                 <li><a href="#overview" class="nav-link">Benchmark</a></li>
@@ -73,12 +73,69 @@
     
     <!-- 主要内容区域 -->
     <main>
+        <!-- 简洁说明区域 -->
+        <section id="summary" class="summary-section content-section">
+            <div class="container">
+                <div class="summary-content">
+                    <div class="summary-text">
+                        <p class="summary-intro">We introduce <strong>Inf-Bench</strong>—a comprehensive benchmark for systematically evaluating spatial deformation reasoning capabilities in Vision-Language Models.</p>
+                        
+                        <div class="feature-highlights">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Infinite Ladder</h3>
+                                    <p>Creates an infinite ladder of complexity through three spatial worlds (2D, 2.5D, 3D) and two reasoning types (forward, inverse).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Spatial Deformation Reasoning</h3>
+                                    <p>Focuses on spatial deformation reasoning—a key aspect of spatial intelligence that requires understanding object transformations.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3>Systematic Evaluation</h3>
+                                    <p>Provides a comprehensive framework to push and test the limits of VLMs' spatial reasoning abilities, revealing current model limitations.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-links">
+                            <a href="#" class="btn btn-primary">📄 Paper</a>
+                            <a href="https://huggingface.co/datasets/Chrishuanhuan/Inf-Bench" class="btn btn-primary">🤗 Dataset</a>
+                            <a href="https://huggingface.co/datasets/Chrishuanhuan/Inf-Bench" class="btn btn-primary">💻 Code</a>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-image">
+                        <img src="images/ledder.png" alt="Inf-Bench Infinite Ladder Concept" class="ledder-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- 摘要区域 -->
         <section id="abstract" class="abstract-section content-section">
             <div class="container abstract-container">
                 <div class="abstract-content">
                     <h2 class="section-title">Abstract</h2>
-                    <p>Humans naturally possess the spatial reasoning ability to form and manipulate images and structures of objects in space. There is an increasing effort to endow Vision-Language Models (VLMs) with similar spatial reasoning capabilities. However, it remains unclear whether these models truly understand and manipulate spatial objects or rely on simpler pathways for solving tasks. In this work, we introduce <strong>Inf-Bench</strong>, a comprehensive benchmark designed to evaluate spatial reasoning in VLMs. Specifically, we focus on spatial deformation reasoning—a key aspect of spatial intelligence that requires understanding how objects transform through spatial operations. Our benchmark presents an infinite ladder of complexity through three levels of spatial worlds (2D, 2.5D, and 3D) and two types of reasoning (forward and inverse). This design creates a systematic framework to push and evaluate the limits of VLMs' spatial reasoning abilities. Through extensive evaluation, we demonstrate that current state-of-the-art VLMs struggle with spatial deformation reasoning, especially as complexity increases along our infinite ladder. Our findings reveal specific weaknesses and limitations in current models, providing valuable insights for future research directions in spatial reasoning for vision-language intelligence.</p>
+                    <p>Vision-Language Models (VLMs) have shown impressive capabilities, but their spatial reasoning abilities remain largely untested. We introduce <strong>Inf-Bench</strong>, a comprehensive benchmark designed to evaluate spatial deformation reasoning in VLMs through an infinite ladder of complexity.</p>
+                    
+                    <p>Our benchmark spans three spatial worlds (2D, 2.5D, and 3D) with both forward and inverse reasoning tasks. This systematic framework reveals that current state-of-the-art VLMs struggle significantly with spatial deformation reasoning, especially as complexity increases.</p>
+                    
+                    <p>Through extensive evaluation, we identify specific weaknesses in current models and provide valuable insights for advancing spatial reasoning capabilities in vision-language intelligence.</p>
                 </div>
                 <div class="abstract-image">
                     <img src="images/spatial-reasoning-benchmark.png" alt="Inf-Bench Showcase" class="hero-image">
