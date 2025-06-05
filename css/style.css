@@ -1094,3 +1094,30 @@ code {
     max-width: 300px;
   }
 }
+
+/* 内联选项图片样式 */
+.option-image-inline {
+    width: 24px;
+    height: auto;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+/* 操作提示列表样式 */
+.operation-hints {
+    background-color: #f8f9fa;
+    border-left: 4px solid #1a73e8;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    margin-left: 10px; /* 向右移动提示内容 */
+}
+
+.operation-hints li {
+    margin-bottom: 8px;
+}
+
+/* 答案展示样式（从记忆中应用） */
+.answer span {
+    color: green;
+}

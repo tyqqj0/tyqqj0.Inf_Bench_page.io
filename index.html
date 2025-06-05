@@ -171,14 +171,42 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- 新增示例卡片 -->
+                    <div class="example-card">
+                        <h3>Example 2: 2.5D Forward Reasoning (ShapeZ)</h3>
+                        <div class="example-content">
+                            <img src="images/shapez_2.5_question.png" alt="2.5D forward problem example" class="example-image" style="width: 60%;">
+                            
+                            <div class="problem-description">
+                                <p>Shape (a) is performed with 3 operations, and the result is shape (b), please infer what the operations are.</p>
+                                <div class="options">
+                                    <div class="option">A. stack under <img src="images/shapez_2.5_A.png" alt="Option Image A" class="option-image-inline">; stack under <img src="images/shapez_2.5_B.png" alt="Option Image B" class="option-image-inline">; cut</div>
+                                    <div class="option">B. cut; colorize purple; stack under <img src="images/shapez_2.5_A.png" alt="Option Image A" class="option-image-inline"></div>
+                                    <div class="option">C. stack upper on <img src="images/shapez_2.5_A.png" alt="Option Image A" class="option-image-inline">; stack under <img src="images/shapez_2.5_B.png" alt="Option Image B" class="option-image-inline">; cut</div>
+                                    <div class="option">D. stack upper on <img src="images/shapez_2.5_B.png" alt="Option Image B" class="option-image-inline">; stack under <img src="images/shapez_2.5_A.png" alt="Option Image A" class="option-image-inline">; cut</div>
+                                </div>
+                                
+                                <button class="show-answer-btn">Show Answer</button>
+                                <div class="answer">
+                                    <p><span style="color: green;">Correct Answer: C</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="example-card">
-                        <h3>Example 2: 3D Forward Reasoning (Rubik's Cube Operations)</h3>
+                        <h3>Example 3: 3D Forward Reasoning (Rubik's Cube)</h3>
                         <div class="example-content">
                             <img src="images/3d-rubik-steps.png" alt="3D forward problem example" class="example-image">
                             
                             <div class="problem-description">
                                 <p>This cube undergoes 3 operations: {F; B2; E2}. What will the final cube look like?</p>
+                                <ul class="operation-hints">
+                                    <li>F: Rotate the front face 90 degrees clockwise.</li>
+                                    <li>B2: Rotate the back face 180 degrees clockwise.</li>
+                                    <li>E2: Rotate the middle layer 180 degrees clockwise.</li>
+                                </ul>
                                 <div class="options image-options">
                                     <div class="image-option">
                                         <img src="images/3d-rubik-steps_A.png" alt="Option A" class="option-image">
