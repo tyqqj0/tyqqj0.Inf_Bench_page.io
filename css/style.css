@@ -1110,7 +1110,7 @@ code {
     padding: 15px;
     margin: 15px 0;
     border-radius: 4px;
-    margin-left: 10px; /* 向右移动提示内容 */
+    padding-left: 25px; /* 增加左侧内边距，使列表符号与蓝色边框之间有更多空间 */
 }
 
 .operation-hints li {
